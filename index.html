@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
 <style>
   :root {
     --bg:        #070b16;
@@ -158,9 +158,10 @@
   .sec-label { font-family:var(--mono); color:var(--accent); font-size:0.82rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px; }
   .sec-title { font-family:var(--display); font-weight:700; font-size: clamp(1.6rem,4vw,2.4rem); letter-spacing:-0.5px; margin-bottom:40px; }
 
-  .about-text { color:var(--muted); font-size:1.08rem; max-width:760px; }
+  .about-text { color:var(--muted); font-size:1.08rem; max-width:760px; text-align:justify; }
   .about-text strong { color:var(--text); font-weight:600; }
-  .stats { display:flex; gap:38px; flex-wrap:wrap; margin-top:34px; }
+  .stats { display:flex; gap:38px; flex-wrap:wrap; margin-top:34px; margin-left:412px; }
+  @media (max-width:780px){ .stats { margin-left:0; } }
   .stat { text-align:center; }
   .stat .num { font-family:var(--display); font-weight:700; font-size:2rem; color:var(--accent-2); display:flex; align-items:center; justify-content:center; height:2.4rem; line-height:1; }
   .stat-icon { width:30px; height:30px; display:block; }
@@ -197,7 +198,7 @@
   .exp-block:last-child { margin-bottom:0; }
   .exp-block h4 { font-size:0.95rem; color:var(--text); margin-bottom:10px; font-weight:600; }
   .exp-list, .proj-points { list-style:none; }
-  .exp-list li, .proj-points li { color:var(--muted); padding-left:22px; position:relative; margin-bottom:10px; font-size:0.98rem; }
+  .exp-list li, .proj-points li { color:var(--muted); padding-left:22px; position:relative; margin-bottom:10px; font-size:0.98rem; text-align:justify; }
   .exp-list strong { color: var(--text); font-weight:600; }
   .exp-list li::before, .proj-points li::before { content:"▹"; position:absolute; left:0; color:var(--accent); }
 
@@ -206,7 +207,7 @@
   .proj-top { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:6px; }
   .proj-name { font-family:var(--display); font-weight:600; font-size:1.35rem; }
   .proj-date { font-family:var(--mono); color:var(--faint); font-size:0.82rem; white-space:nowrap; }
-  .proj-desc { color:var(--muted); margin:14px 0 18px; font-size:1rem; }
+  .proj-desc { color:var(--muted); margin:14px 0 18px; font-size:1rem; text-align:justify; }
   .proj-points { margin-bottom:20px; }
   .proj-foot { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
   .proj-links a {
@@ -286,11 +287,11 @@
 
   /* ====== ABOUT two-column layout ====== */
   .about-grid {
-    display:grid; grid-template-columns: 360px 1fr; gap:52px; align-items:start;
+    display:grid; grid-template-columns: 360px 1fr; gap:52px; align-items:stretch;
   }
-  .about-photo { position:relative; }
+  .about-photo { position:relative; height:100%; }
   .about-photo img {
-    width:100%; display:block; border-radius:20px;
+    width:100%; height:100%; display:block; border-radius:20px; object-fit:cover;
     border:1px solid var(--glass-border);
     box-shadow: 0 18px 50px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
   }
@@ -374,7 +375,7 @@
   /* ====== WHAT SETS ME APART ====== */
   .edge-layout { display:grid; grid-template-columns: 1fr 1fr; gap:44px; align-items:stretch; }
   .edge-prose { display:flex; flex-direction:column; justify-content:center; }
-  .edge-intro { color:var(--muted); font-size:1.02rem; margin-bottom:22px; }
+  .edge-intro { color:var(--muted); font-size:1.02rem; margin-bottom:22px; text-align:justify; }
   .edge-point { margin-bottom:22px; }
   .edge-point:last-child { margin-bottom:0; }
   .edge-point h3 {
@@ -383,7 +384,7 @@
   }
   .edge-point h3 .e { display:inline-flex; align-items:center; color:var(--accent-2); }
   .edge-point h3 .e svg { width:21px; height:21px; display:block; }
-  .edge-point p { color:var(--muted); font-size:0.98rem; line-height:1.62; }
+  .edge-point p { color:var(--muted); font-size:0.98rem; line-height:1.62; text-align:justify; }
   .edge-image { position:relative; }
   .edge-image img {
     width:100%; height:100%; object-fit:cover; object-position:center;
@@ -451,7 +452,7 @@
       <p class="tagline reveal">I like taking messy, complex problems and turning them into clean, dependable software from the frontend a user sees down to the backend and the databases that power it. Always building, always curious, always learning something new.</p>
       <div class="cta reveal">
         <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="Monish's Resume.pdf" class="btn btn-ghost"><svg class="btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Resume</a>
+        <a href="Monish's_Resume.pdf" class="btn btn-ghost"><svg class="btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Resume</a>
       </div>
       <div class="socials reveal">
         <a href="https://linkedin.com/in/monish-jagadish-hallegere-903170160" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -488,17 +489,17 @@
       </div>
       <div class="about-body">
         <p class="about-text">
-          I'm a <strong>Full-Stack Developer</strong> with <strong>nearly 4 years</strong> building backend APIs and frontend apps across logistics and NDIS services. I work with <strong>Java, Spring Boot, ReactJS, SQL, Docker, Kubernetes,</strong> and the tools that matter, writing code that's reliable, maintainable, and actually useful for real people.
+          I'm a <strong>Full Stack Software Engineer</strong> with <strong>4 years</strong> of experience building backend APIs and frontend apps across logistics and NDIS services. I work with <strong>Java, Spring Boot, ReactJS, SQL, AWS, Docker, and Kubernetes</strong>, writing code that's reliable, maintainable, and actually useful for real people.
         </p>
         <p class="about-text">
-          At <strong>Blume Global</strong>, I optimised shipment systems and delivered <strong>20% performance gains</strong>. At <strong>Gencare Disability Services</strong>, I'm building workflows that help people access essential support. I recently completed my <strong>Master of IT at Monash University</strong>, and I'm focused on solving real business problems with clean, practical technology.
+          At <strong>Blume Global</strong>, I built microservices for shipment processing, provisioned AWS infrastructure across development and production, and helped deliver a <strong>20 percent performance gain</strong> along with a <strong>35 percent improvement</strong> in delivery velocity. At <strong>Gencare Disability Services</strong>, I'm building workflows that help people access essential support. I recently completed my <strong>Master of IT at Monash University</strong>, and I'm focused on solving real business problems with clean, practical technology.
         </p>
-        <div class="stats">
-          <div class="stat"><div class="num">3.8+</div><div class="lbl">years experience</div></div>
-          <div class="stat"><div class="num">5+</div><div class="lbl">projects built</div></div>
-          <div class="stat"><div class="num"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="lbl">building and learning</div></div>
-        </div>
       </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">3.8+</div><div class="lbl">years experience</div></div>
+      <div class="stat"><div class="num">5+</div><div class="lbl">projects built</div></div>
+      <div class="stat"><div class="num"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="lbl">building and learning</div></div>
     </div>
   </div>
 </section>
@@ -510,21 +511,21 @@
     <h2 class="sec-title reveal">What sets me apart</h2>
     <div class="edge-layout">
       <div class="edge-prose">
-        <p class="edge-intro reveal">I am still early in my journey, but I already have a clear sense of the engineer I want to be. Beyond writing code that works, I care about craftsmanship, thinking ahead, and the small details that quietly make software better.</p>
+        <p class="edge-intro reveal">Beyond writing code that works, I care about craftsmanship, thinking ahead, and the small details that quietly make software better. These are the habits I try to bring to every system I touch.</p>
 
         <div class="edge-point reveal">
           <h3><span class="e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span> A sharp eye for detail</h3>
-          <p>I have a real eye for the things that are easy to overlook: a misaligned element in a UI, a subtle bottleneck in a data flow, an integration risk hiding in plain sight. I would much rather catch those early and quietly fix them than let them grow into something bigger later on.</p>
+          <p>At both Blume Global and Gencare Disability Services, I have caught risks in existing systems before they turned into real problems, whether that was a subtle bottleneck in a data flow or an integration risk hiding in plain sight. I would rather catch those early and quietly fix them than let them grow into something bigger later on.</p>
         </div>
 
         <div class="edge-point reveal">
           <h3><span class="e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span> I think ahead, not just about now</h3>
-          <p>I try not only to ask whether something works today, but whether it will still hold up tomorrow. So I like surfacing the tricky edge cases while we are still planning, and leaning towards designs that stay clean and easy to build on as things grow.</p>
+          <p>I try not only to ask whether something works today, but whether it will still hold up tomorrow. That is why I designed BlueHaven with a clean separation between controllers, services, and repositories from the start, rather than adding structure after the fact. I like surfacing tricky edge cases early and leaning towards designs that stay easy to build on as things grow.</p>
         </div>
 
         <div class="edge-point reveal">
-          <h3><span class="e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-3 2.4-5 6-5 0 3-2.4 5-6 5z"/><path d="M12 14c0-3-2.4-5-6-5 0 3 2.4 5 6 5z"/></svg></span> I love learning, and I am hungry to grow</h3>
-          <p>There is a real thrill for me in understanding something today that I could not yesterday, so I lean into hard problems instead of waiting for the answer. I am not pretending to know it all yet, and what keeps me going is the chance to grow into someone a team can truly count on.</p>
+          <h3><span class="e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-3 2.4-5 6-5 0 3-2.4 5-6 5z"/><path d="M12 14c0-3-2.4-5-6-5 0 3 2.4 5 6 5z"/></svg></span> I love learning, and I put it into practice</h3>
+          <p>There is a real thrill for me in understanding something today that I could not yesterday. That drive took me from writing my first REST API to building event driven systems with Kafka and deploying infrastructure on AWS, and I bring the same energy to whatever the next system asks of me.</p>
         </div>
 
       </div>
@@ -543,83 +544,83 @@
     <p class="chapter-lead reveal">The tools I use to turn ideas into reliable, working software.</p>
     <div class="stack-grid reveal">
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-java-plain colored"></i></div>
+        <div class="stack-tile" style="color:#E76F51"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M8 3c-1 1.5-1 3 .5 4M12 3c-1 1.5-1 3 .5 4"/><path d="M6 9h11v3a5.5 5.5 0 0 1-5.5 5.5h-1A5.5 5.5 0 0 1 5 12V9z"/><path d="M17 10h1.5a2 2 0 0 1 0 4H17"/><path d="M5 20h12"/></svg></div>
         <div class="stack-name">Java</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-javascript-plain colored"></i></div>
+        <div class="stack-tile" style="color:#F4C430"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M8 4a3 3 0 0 0-3 3v2a2 2 0 0 1-2 2 2 2 0 0 1 2 2v2a3 3 0 0 0 3 3"/><path d="M16 4a3 3 0 0 1 3 3v2a2 2 0 0 0 2 2 2 2 0 0 0-2 2v2a3 3 0 0 1-3 3"/></svg></div>
         <div class="stack-name">JavaScript</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-spring-plain colored"></i></div>
+        <div class="stack-tile" style="color:#6DB33F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M19 5c-6 0-13 2-14 9-.4 3 1 5.5 1 5.5s.5-2 2-3c3-2.2 7-1.7 10-4C21 9.8 19 5 19 5z"/><path d="M5.5 19S9 13 15 10.5"/></svg></div>
         <div class="stack-name">Spring Boot</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-graphql-plain colored"></i></div>
+        <div class="stack-tile" style="color:#E535AB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M12 3l8 4.6v8.8L12 21l-8-4.6V7.6z"/><circle cx="12" cy="12" r="2"/></svg></div>
         <div class="stack-name">GraphQL</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-mysql-original colored"></i></div>
+        <div class="stack-tile" style="color:#4479A1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12a7 3 0 0 0 14 0V6"/><path d="M5 12a7 3 0 0 0 14 0"/></svg></div>
         <div class="stack-name">MySQL</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-postgresql-plain colored"></i></div>
+        <div class="stack-tile" style="color:#336791"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12a7 3 0 0 0 14 0V6"/><path d="M5 12a7 3 0 0 0 14 0"/></svg></div>
         <div class="stack-name">PostgreSQL</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-redis-plain colored"></i></div>
+        <div class="stack-tile" style="color:#DC382D"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12a7 3 0 0 0 14 0V6"/><path d="M5 12a7 3 0 0 0 14 0"/></svg></div>
         <div class="stack-name">Redis</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-firebase-plain colored"></i></div>
+        <div class="stack-tile" style="color:#FFA000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M12 2s5 7.5 5 12a5 5 0 0 1-10 0c0-1.2.5-2.3 1-3.2"/><path d="M12 2s2 3.5 2 6.5a2 2 0 0 1-4 0"/></svg></div>
         <div class="stack-name">Firebase</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-react-original colored"></i></div>
+        <div class="stack-tile" style="color:#61DAFB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9" ry="3.8"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg></div>
         <div class="stack-name">ReactJS</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></div>
+        <div class="stack-tile" style="color:#FF9900"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M7 16a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.5 7 4.5 4.5 0 0 1 17 16H7z"/></svg></div>
         <div class="stack-name">AWS</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-docker-plain colored"></i></div>
+        <div class="stack-tile" style="color:#2496ED"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><rect x="3" y="10" width="4" height="4"/><rect x="8" y="10" width="4" height="4"/><rect x="13" y="10" width="4" height="4"/><rect x="8" y="5" width="4" height="4"/><path d="M2 14c0 4 3 6.5 8 6.5 6 0 9.5-3 10.5-7-1-.6-2.3-.6-3-.2-.4-1-1.4-1.6-2-1.8"/></svg></div>
         <div class="stack-name">Docker</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-kubernetes-plain colored"></i></div>
+        <div class="stack-tile" style="color:#326CE5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M12 2l2 3.2 3.6-1 .6 3.7 3.6 1.2-2 3.2 2 3.2-3.6 1.2-.6 3.7-3.6-1L12 22l-2-3.2-3.6 1-.6-3.7-3.6-1.2 2-3.2-2-3.2 3.6-1.2.6-3.7 3.6 1z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div class="stack-name">Kubernetes</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-jenkins-plain colored"></i></div>
+        <div class="stack-tile" style="color:#D33833"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><circle cx="12" cy="12" r="8"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4"/><circle cx="12" cy="12" r="2.4"/></svg></div>
         <div class="stack-name">Jenkins</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-github-original"></i></div>
+        <div class="stack-tile" style="color:#c9d1d9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M12 3a9 9 0 0 0-2.8 17.5c.4.1.6-.2.6-.4v-1.6c-2.5.5-3-1.1-3-1.1-.4-1-1-1.3-1-1.3-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .8 1.5 2.2 1 2.8.8.1-.6.3-1 .6-1.3-2-.2-4.1-1-4.1-4.4 0-1 .3-1.7.9-2.4-.1-.2-.4-1.2.1-2.5 0 0 .8-.2 2.5 1a8.6 8.6 0 0 1 4.6 0c1.7-1.2 2.5-1 2.5-1 .5 1.3.2 2.3.1 2.5.6.7.9 1.5.9 2.4 0 3.4-2.1 4.2-4.1 4.4.3.3.6.8.6 1.7v2.5c0 .2.2.5.6.4A9 9 0 0 0 12 3z"/></svg></div>
         <div class="stack-name">GitHub</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-apachekafka-original"></i></div>
+        <div class="stack-tile" style="color:#e8e8e8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M4 8h16M4 12h16M4 16h16"/><circle cx="8" cy="8" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1" fill="currentColor" stroke="none"/></svg></div>
         <div class="stack-name">Kafka</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-redux-original colored"></i></div>
+        <div class="stack-tile" style="color:#764ABC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9" ry="3.8"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg></div>
         <div class="stack-name">Redux</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-vuejs-plain colored"></i></div>
+        <div class="stack-tile" style="color:#4FC08D"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M3 4h4l5 8 5-8h4L12 20z"/></svg></div>
         <div class="stack-name">Vue.js</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-html5-plain colored"></i></div>
+        <div class="stack-tile" style="color:#E44D26"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M9 8l-3 3 3 3M15 8l3 3-3 3M13 6l-2 12"/></svg></div>
         <div class="stack-name">HTML</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-css3-plain colored"></i></div>
+        <div class="stack-tile" style="color:#264DE4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><path d="M5 3h14l-1.3 15L12 20l-5.7-2L5 3z"/><path d="M8 8h8l-.3 3H9l.2 2.3L12 14l2.8-.7.2-2"/></svg></div>
         <div class="stack-name">CSS</div>
       </div>
       <div class="stack-item">
-        <div class="stack-tile"><i class="devicon-git-plain colored"></i></div>
+        <div class="stack-tile" style="color:#F05032"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="2.6rem" height="2.6rem"><circle cx="7" cy="6" r="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="12" r="2"/><path d="M7 8v8M9 6.5c3 0 6 1.5 6 4"/></svg></div>
         <div class="stack-name">Git</div>
       </div>
     </div>
@@ -634,7 +635,7 @@
     <p class="chapter-lead reveal">Where learning turned into real products, real users, and real responsibility.</p>
     <div class="exp-card glass reveal">
       <div class="exp-head">
-        <span class="exp-role">Software Developer</span>
+        <span class="exp-role">Software Engineer</span>
         <span class="exp-date">June 2024 &ndash; Present</span>
       </div>
       <div class="exp-co">Gencare Disability Services Pty Ltd · Melbourne, Australia</div>
@@ -646,7 +647,7 @@
           <li>Designed and improved <strong>10+ responsive frontend screens</strong> using <strong>ReactJS, JavaScript, HTML, and CSS</strong>, enhancing service visibility and user experience across desktop and mobile devices, resulting in improved user engagement and accessibility.</li>
           <li>Built and tested backend features using <strong>JUnit and Mockito</strong>, improving reliability across participant intake, contact forms, and service request workflows, achieving comprehensive test coverage for critical business logic.</li>
           <li>Collaborated closely with <strong> business stakeholders </strong> to translate NDIS service requirements into practical digital features, directly improving how participants access essential support services and reducing support friction.</li>
-          <li>Implemented <strong>database optimisation strategies</strong> using <strong>SQL query tuning and indexing</strong>, reducing API response times and improving system performance for time-sensitive participant enquiries.</li>
+          <li>Implemented <strong>database optimisation strategies</strong> using <strong>SQL query tuning and indexing</strong>, reducing API response times and improving system performance for participant enquiries that need a quick turnaround.</li>
           <li>Contributed to <strong> system architecture decisions and code reviews, </strong> ensuring code quality, maintainability, and adherence to best practices across the development team, supporting knowledge sharing and team growth.</li>
         </ul>
       </div>
@@ -662,9 +663,9 @@
         <h4>Shipment Lifecycle & Scalable Workflows</h4>
         <ul class="exp-list">
           <li>Designed and shipped <strong>6+ Spring Boot RESTful APIs</strong> for shipment lifecycle management (create, update, track, delete), achieving a <strong>20% performance improvement</strong> via query optimisation.</li>
-          <li>Built reusable <strong>ReactJS &amp; Redux</strong> components for a centralised supply chain dashboard, reducing redundant UI updates and standardising state management across <strong>4 feature teams</strong>. Integrated a <strong>GraphQL</strong> layer for flexible data fetching, reducing over-fetching from REST endpoints.</li>
-          <li>Secured the platform with <strong>JWT-based authentication &amp; role-based access control (RBAC)</strong>, managing token persistence for seamless user sessions. Achieved <strong>90% test coverage</strong> with <strong>JUnit &amp; Mockito</strong> across unit and integration suites.</li>
-          <li>Contributed to containerising microservices with <strong>Docker &amp; Kubernetes</strong>, supporting <strong>horizontal scaling</strong> across development and production. Implemented an <strong>event-driven pipeline using Apache Kafka</strong> for asynchronous inter-service communication.</li>
+          <li>Built reusable <strong>ReactJS &amp; Redux</strong> components for a centralised supply chain dashboard, reducing redundant UI updates and standardising state management across <strong>4 feature teams</strong>. Integrated a <strong>GraphQL</strong> layer for flexible data fetching, reducing unnecessary data fetching from REST endpoints.</li>
+          <li>Secured the platform with <strong>JWT authentication &amp; role based access control (RBAC)</strong>, managing token persistence for seamless user sessions. Achieved <strong>90% test coverage</strong> with <strong>JUnit &amp; Mockito</strong> across unit and integration suites.</li>
+          <li>Contributed to containerising microservices with <strong>Docker &amp; Kubernetes</strong>, supporting <strong>horizontal scaling</strong> across development and production. Implemented an <strong>event driven pipeline using Apache Kafka</strong> for asynchronous inter service communication.</li>
           <li>Provisioned and managed cloud infrastructure with <strong>AWS EC2/S3</strong>, enabling consistent, repeatable environments for development, staging, and production.</li>
           <li>Improved <strong>Agile delivery velocity by 35%</strong> through stakeholder coordination and clear sprint scoping.</li>
         </ul>
@@ -690,12 +691,13 @@
           <li>Architected a <strong>Java</strong> backend with a clean separation of <strong>controllers, services, and repositories</strong>, exposing <strong>RESTful APIs</strong> for core business logic and data processing.</li>
           <li>Designed a normalised <strong>relational database schema</strong> to model end to end data flow with referential integrity.</li>
           <li>Built a reactive <strong>Vue.js</strong> single page frontend consuming the REST APIs, with reusable components and state handled on the client for accurate, real time rendering.</li>
+          <li>Deployed the application on <strong>AWS</strong>, using EC2 for hosting, RDS as the relational database, and S3 for storage.</li>
           </ul>
           <div class="proj-foot">
           <div class="proj-links">
             <a href="https://blue-haven.app/#/" target="_blank" rel="noopener">Live Site ↗</a><a href="https://github.com/jin26317/T46_studio_project" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
-            <div class="chips"><span class="chip">Java</span><span class="chip">Vue.js</span><span class="chip">REST APIs</span><span class="chip">Relational DB</span></div>
+            <div class="chips"><span class="chip">Java</span><span class="chip">Vue.js</span><span class="chip">REST APIs</span><span class="chip">AWS</span><span class="chip">Relational DB</span></div>
           </div>
         </div>
       </div>
@@ -704,7 +706,7 @@
         <span class="tl-date">August 2025 &ndash; October 2025</span>
         <div class="tl-card glass">
           <div class="proj-top"><span class="proj-name">MindHaven</span></div>
-          <p class="proj-desc">A mental-wellbeing web application that helps users track their health and book GP appointments.</p>
+          <p class="proj-desc">A mental wellbeing web application that helps users track their health and book GP appointments.</p>
           <ul class="proj-points">
           <li>Developed a <strong>Vue.js</strong> single page application backed by <strong>Firebase Firestore</strong> as a real time NoSQL datastore.</li>
           <li>Implemented secure, role based authentication with <strong>Firebase Auth</strong> and <strong>Google OAuth</strong> sign in, persisting sessions across multiple user roles.</li>
@@ -760,7 +762,7 @@
         <span class="tl-date">March 2022 &ndash; July 2022</span>
         <div class="tl-card glass">
           <div class="proj-top"><span class="proj-name">Driver Distraction Detection System</span></div>
-          <p class="proj-desc">A computer-vision system that detects distracted driving in real time by classifying ten distinct driver states.</p>
+          <p class="proj-desc">A computer vision system that detects distracted driving in real time by classifying ten distinct driver states.</p>
           <ul class="proj-points">
           <li>Built a deep learning image classifier on the <strong>ResNet50</strong> CNN architecture, using <strong>residual (skip) connections</strong> to train a very deep network without vanishing gradients.</li>
           <li>Applied <strong>transfer learning</strong> in <strong>Python</strong> (<strong>TensorFlow / Keras</strong>) on the State Farm Distracted Driver dataset (~20k images), with splitting the data by driver to prevent <strong>data leakage</strong>.</li>
